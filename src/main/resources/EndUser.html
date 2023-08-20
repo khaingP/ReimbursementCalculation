@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reimbursement Claim Form</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: scroll;
+        }
+
+        .space {
+            margin-bottom: 100px; /* Add more space */
+        }
+    </style>
+</head>
+<body>
+<h1>Reimbursement Claim Form</h1>
+<form  action="submit" method="post">
+    <label for="tripDate">Trip Date:</label>
+    <input type="date" id="tripDate" name="tripDate"><br><br>
+
+    <label for="numOfDays">Number of Days:</label>
+    <input type="number" id="numOfDays" name="numOfDays"><br><br>
+
+    <label for="distance">Distance in km:</label>
+    <input type="number" id="distance" name="distance"><br><br>
+
+    <div class="dropdown">
+        <button id="receipts-toggle" type="button">Select Receipts</button>
+        <div class="dropdown-content" id="receipts-content">
+            <label><input type="checkbox" name="receipts" value="taxi">Taxi</label><br>
+            <label><input type="checkbox" name="receipts" value="hotel">Hotel</label><br>
+            <label><input type="checkbox" name="receipts" value="plane">Plane Ticket</label><br>
+            <label><input type="checkbox" name="receipts" value="train">Train</label><br>
+        </div>
+    </div><br>
+    <div class="space"></div>
+
+    <input type="submit" value="Calculate Total">
+    <p id="result"></p>
+</form>
+<script>
+    const toggleButton = document.getElementById('receipts-toggle');
+    const dropdownContent = document.getElementById('receipts-content');
+
+    toggleButton.addEventListener('click', () => {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+</script>
+</body>
+</html>
+

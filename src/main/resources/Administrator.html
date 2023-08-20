@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            max-height: 150px;
+            overflow-y: scroll;
+        }
+
+        .space {
+            margin-bottom: 100px;
+        }
+    </style>
+</head>
+<body>
+<h1>Administrator Panel</h1>
+
+<h2>Configure Rates</h2>
+<form>
+    <label for="dailyAllowanceRate">Daily Allowance Rate ($/day):</label>
+    <input type="number" id="dailyAllowanceRate" name="dailyAllowanceRate" value="15"><br><br>
+
+    <label for="carMileageRate">Car Mileage Rate ($/km):</label>
+    <input type="number" id="carMileageRate" name="carMileageRate" value="0.3"><br><br>
+
+    <button type="submit">Update Rates</button>
+</form>
+
+<h2>Edit Receipt List</h2>
+<form>
+    <div class="dropdown">
+        <button id="receipts-toggle" type="button">Edit Receipts</button>
+        <div class="dropdown-content" id="receipts-content">
+            <label><input type="checkbox" name="receipts" value="taxi">Taxi</label><br>
+            <label><input type="checkbox" name="receipts" value="hotel">Hotel</label><br>
+            <label><input type="checkbox" name="receipts" value="plane">Plane Ticket</label><br>
+            <label><input type="checkbox" name="receipts" value="train">Train</label><br>
+        </div>
+    </div><br>
+    <div class="space"></div>
+
+    <button type="button" onclick="removeReceipt()">Remove Receipt</button><br><br>
+
+    <input type="text" >
+    <button type="submit"> Add </button>
+</form>
+
+<h2>Define Reimbursement Limits</h2>
+<form>
+    <label for="receiptType">Receipt Type:</label>
+    <select id="receiptType" name="receiptType">
+        <option value="taxi">Taxi</option>
+        <option value="hotel">Hotel</option>
+        <option value="plane">Plane Ticket</option>
+        <option value="train">Train</option>
+    </select>
+
+    <label for="limitType">Limit Type:</label>
+    <select id="limitType" name="limitType">
+        <option value="single">Single Calculation Result</option>
+        <option value="total">Total Reimbursement</option>
+        <option value="distance">Distance</option>
+    </select>
+
+    <label for="limitValue">Limit Value:</label>
+    <input type="number" id="limitValue" name="limitValue"><br><br>
+
+    <button type="submit">Define Limit</button>
+</form>
+<script>
+    const toggleButton = document.getElementById('receipts-toggle');
+    const dropdownContent = document.getElementById('receipts-content');
+
+    toggleButton.addEventListener('click', () => {
+        dropdownContent.style.display = dropdownContent.style.display === 'block' ? 'none' : 'block';
+    });
+
+</script>
+</body>
+</html>
