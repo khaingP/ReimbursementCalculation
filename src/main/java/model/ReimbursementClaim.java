@@ -105,7 +105,7 @@ public class ReimbursementClaim {
         this.distance = distance;
     }
 
-    /**  While calculation sum , i didn't add receeipts amount
+    /**  While calculating sum , i didn't add receipts amount
      *  as I wasn't sure about the requirements.
      *  just adding receipts quality or  adding the values of the receipt
      *  and in my opinion just adding receipt quality doesn't make sense in total reimbursement amount
